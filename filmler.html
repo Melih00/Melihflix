@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELIHFLIX</title>
+    <link rel="stylesheet" href="./style/header.css">    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/anasayfa.css">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Open+Sans+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3e12eff7ef.js" crossorigin="anonymous"></script>
+    <!-- <link rel="shortcut icon" href="./images/netflix_logo.png" type="image/x-icon"> -->
+
+
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning font-monospace header_melihflix btn btn-dark" href="#GITHUB"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="GITHUB Sayfasına Git"
+                href="#">MELIHFLIX</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        <ul id="header" class="@filmler navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active border-bottom border-warning " aria-current="page" href="./anasayfa.html">Ana
+                    Sayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  " href="./diziler.html">Diziler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./filmler.html">Filmler </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./listem.html">Listem</a>
+            </li>
+
+
+        </ul>
+       
+        <form class="d-flex">
+            <input id="search" autocomplete="off" list="harika"
+                class="form-control me-1 btn-outline-light rounded-pill" type="search" placeholder="Search"
+                aria-label="Search">
+            <button class="btn btn-outline-warning search-btn rounded-pill" type="submit"> <i title="Ara"
+                    style="display: inline-block" class="fas fa-search" id="glass"></i></button>
+            <datalist id="harika">
+                <option value="Bu Sayfa">
+                <option value="Bi Harika">
+
+            </datalist>
+
+        </form>
+
+<ul id="bildirim_main_ul" class="rounded">
+    <li id="bildirim_main_li"><i title="Bildirimler" id="bell" class="fas fa-bell"></i> <i id="downsign"
+            class="fas fa-sort-down"></i></li>
+    <ul id="bildirim_ul" class="rounded">
+        <li><img class="bildirim_img" src=".//images/bildirim1.png" alt="">
+            <p class="p2">En sevdiklerinizi yeniden izleyin, İzlediklerinize bir göz atın<br><span
+                    class="bildirim_tarih">Bugün</span>
+
+            </p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim2.png" alt="">
+            <p class="p2">Rick and Morty hâlâ izlemenizi bekliyor. Şimdi izleyin veya başka neler var
+                bakın...<br><span class="bildirim_tarih">1 gün önce</span></p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim3.png" alt="">
+            <p class="p2">Yeni İçerik. <br> Korku Sokağı 1. Kısım: 1994<br><span class="bildirim_tarih">1
+                    gün önce</span></p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim4.png" alt="">
+            <p class="p2">Top 10 Listesinde Bugün: Türkiye<br> Tümünü İzleyin <br><span class="bildirim_tarih">2
+                    gün önce</span></p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim5.png" alt="">
+            <p class="p2">İzlemeye Devam Edin:<br>La Casa de Papel<br><span class="bildirim_tarih">3 gün
+                    önce</span></p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim6.jpg" alt="">
+            <p class="p2">Dünyanın En İyi Dizisi Olmaya Aday:<br>Peaky Blinders, Hemen İzleyin <br><span
+                    class="bildirim_tarih">5 gün önce</span></p>
+        </li>
+        <hr>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim7.png" alt="">
+            <p class="p2">En yeni içeriklerden size özel önerilerimiz. <br> Yeni favorinizi bulun.<br><span
+                    class="bildirim_tarih">1 hafta önce</span></p>
+        </li>
+        <hr>
+        <li><img class="bildirim_img" src=".//images/bildirim8.png" alt="">
+            <p class="p2">Yeni İçerik: <br>Ölüler Ordusu <br><span class="bildirim_tarih">1 hafta
+                    önce</span></p>
+        </li>
+        <li><img class="bildirim_img" src=".//images/bildirim9.jpg" alt="">
+            <p class="p2"> Gelmiş Geçmiş En Sürükleyici Dizi:
+                <br>Game of Thrones <br><span class="bildirim_tarih">1 ay önce</span>
+            </p>
+        </li>
+    </ul>
+</ul></div>
+
+    <ul id="users_main_ul" class="rounded">
+        <li class="melih users_li"><span id="melih">
+                <img id="img_header_right" class="ul_images rounded-circle" src="./images/LCDP.png" alt="">
+                <p class="mlh">Melih <i id="downsign" class="fas fa-sort-down"></i></p>
+    
+            </span> </li>
+        <ul id="users_ul" class="rounded">
+            <li class="users_li"><span id="hasanfurkan">
+                    <img class="ul_images" src="./images/BabyBoss.png" alt="">
+                    <p class="users hsn"> Hasan Furkan </p>
+                </span> </li>
+            <li class="users_li"><span id="yaman">
+                    <img class="ul_images" src="./images/dustin_pp.png" alt="">
+                    <p class="users ymn">Yaman </p>
+                </span> </li>
+            <li class="users_li"> <span id="markmaddison">
+                    <img class="ul_images" src="./images/witcher_pp.png" alt="">
+                    <p class="users md">Mark Maddison </p>
+                </span> </li>
+            <li class="users_li"><span id="mccharty">
+                    <img class="ul_images" src="./images/lucifer_pp.png" alt="">
+                    <p class="users mc">Mccarthy Silva </p>
+                </span> </li><br>
+            <li>
+                <p>Profil Yönetimi</p>
+            </li>
+    
+            <hr>
+            <li>
+                <p>Hesap</p>
+            </li>
+            <li>
+                <p>Yardım Merkezi</p>
+            </li>
+            <li>
+                <p>Oturumu Kapat</p>
+            </li>
+        </ul>
+    
+    </ul>
+    
+    </nav>
+
+
+
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+    <script>var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })</script>
+</body>
+</html>
