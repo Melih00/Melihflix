@@ -600,6 +600,7 @@ const raisingModal = new modal(
 const klausModal = new modal(
   'KLAUSmodal','modal_klausjpg',klaus.name,klaus.eslesme,klaus.time,klaus.aciklama,'Aksiyon', 'Dövüş'
 )
+
 document.getElementById("modal_insert_randm").innerHTML = randmModal.render();
 document.getElementById("modal_insert_lupin").innerHTML = lupinModal.render();
 document.getElementById("modal_insert_olulerordusu").innerHTML = olulerModal.render();
