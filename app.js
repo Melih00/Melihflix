@@ -583,7 +583,7 @@ const ask101Modal = new modal(
   'ASK101modal','modal_ask101.jpg',ask101.name,ask101.eslesme,ask101.time,ask101.aciklama,'Aksiyon', 'Dövüş'
 )
 const bbModal = new modal(
-  'BBmodal','modal_blackmirror.jpg',blackmirror.name,blackmirror.eslesme,blackmirror.time,blackmirror.aciklama,'Aksiyon', 'Dövüş'
+  'BMmodal','modal_blackmirror.jpg',blackmirror.name,blackmirror.eslesme,blackmirror.time,blackmirror.aciklama,'Aksiyon', 'Dövüş'
 )
 const trolModal = new modal(
   'TROLmodal','modal_trol.jpg',trolavcilari.name,trolavcilari.eslesme,trolavcilari.time,trolavcilari.aciklama,'Aksiyon', 'Dövüş'
@@ -600,6 +600,7 @@ const raisingModal = new modal(
 const klausModal = new modal(
   'KLAUSmodal','modal_klausjpg',klaus.name,klaus.eslesme,klaus.time,klaus.aciklama,'Aksiyon', 'Dövüş'
 )
+
 document.getElementById("modal_insert_randm").innerHTML = randmModal.render();
 document.getElementById("modal_insert_lupin").innerHTML = lupinModal.render();
 document.getElementById("modal_insert_olulerordusu").innerHTML = olulerModal.render();
