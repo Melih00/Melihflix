@@ -170,6 +170,9 @@ datalist {
   z-index: 33;
   transition: all 0.3s;
 }
+#users_ul i {
+  visibility: hidden !important;
+}
 .melih:hover ~ #users_ul,
 #users_ul:hover {
   display: inline-block;

@@ -68,41 +68,60 @@ class headerClass {
 // <li>`
 // }
 const Users = {
-  first: `<li class="melih users_li"><span id="melih">
+  first: `<li class="melih users_li"><span class='users_lispan' id="melih">
   <img id="img_header_right" class="ul_images rounded-circle" src="./images/LCDP.png" alt="">
   <p class="mlh">Melih <i id="downsign" class="fas fa-sort-down"></i></p>
-  
   </span> </li>`,
-  second:`<li class="users_li"><span id="hasanfurkan">
+  second: `<li class="users_li"><span class='users_lispan' id="hasanfurkan">
   <img class="ul_images" src="./images/BabyBoss.png" alt="">
-  <p class="users hsn"> Hasan Furkan </p>
-  </span> </li>` ,
-  third: `<li class="users_li"><span id="yaman">
-  <img class="ul_images" src="./images/dustin_pp.png" alt="">
-  <p class="users ymn">Yaman </p>
+  <p class="users hsn"> Hasan Furkan <i id="downsign" class="fas fa-sort-down"></i> </p>
   </span> </li>`,
-  fourth:`<li class="users_li"> <span id="markmaddison">
+  third: `<li class="users_li"><span class='users_lispan' id="yaman">
+  <img class="ul_images" src="./images/dustin_pp.png" alt="">
+  <p class="users ymn">Yaman  <i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`,
+  fourth: `<li class="users_li"> <span class='users_lispan' id="markmaddison">
   <img class="ul_images" src="./images/witcher_pp.png" alt="">
-  <p class="users md">Mark Maddison </p>
-  </span> </li>` ,
-  fifth:  `<li class="users_li"><span id="mccharty">
+  <p class="users md">Mark Maddison  <i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`,
+  fifth: `<li class="users_li"><span class='users_lispan' id="mccharty">
   <img class="ul_images" src="./images/lucifer_pp.png" alt="">
-  <p class="users mc">Mccarthy Silva </p>
-  </span> </li`
-}
+  <p class="users mc">Mccarthy Silva  <i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`,
+  sixth: '' ,
+  seventh: '' ,
+  eighth: ''
+  
+};
 const usersMainUl = document.getElementById("users_main_ul");
-usersMainUl.innerHTML = `${Users.first}
+const fnc2 = () => {
+  return `${Users.first}
 <ul id="users_ul" class="rounded">
 
-${Users.second}
-${Users.third}
-${Users.fourth}
-${Users.fifth}
-<br><br>
+${Users.second != '' ? Users.second : ""}
+${Users.third != '' ? Users.third : ""}
+${Users.fourth != '' ? Users.fourth : ""}
+${Users.fifth != '' ? Users.fifth : ""}
+${Users.sixth != '' ? Users.sixth : ""}
+${Users.seventh != '' ? Users.seventh : ""}
+${Users.eighth != '' ? Users.eighth : ""}
+
+<br>
 <li>
-<p>Profil Yönetimi</p>
+
+
+<p><a class="profilyonetimi-p" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+Profil Yönetimi  </a> 
+  </p>
 </li>
 
+  <div class="collapse" id="collapseExample">
+  <div class="card card-body profilyonetimi-div">
+    <button id='profil-ekle' data-bs-toggle="modal" data-bs-target="#EKLEmodal" class='btn btn-warning rounded-pill'>Kullanıcı Ekle</button>
+    <button id='profil-kaldir' data-bs-toggle="modal" data-bs-target="#KALDIRmodal" class='btn btn-warning rounded-pill'>Kullanıcı Kaldır</button>
+  </div>
+</div>
+ 
 <hr>
 <li>
 <p>Hesap</p>
@@ -114,55 +133,50 @@ ${Users.fifth}
 <p>Oturumu Kapat</p>
 </li>
 </ul>
-`
- 
-;
+`;
+};
+
+usersMainUl.innerHTML = fnc2();
 const header = document.getElementById("header");
 const thisPage = new headerClass(header.classList[0]);
 header.innerHTML = thisPage.render();
 const mainUl = document.getElementById("users_main_ul");
 const childUl = document.getElementById("users_ul");
+const users = document.getElementsByClassName("users_lispan");
 const melih = document.getElementById("melih");
 const hasanfurkan = document.getElementById("hasanfurkan");
 const yaman = document.getElementById("yaman");
 const markmaddison = document.getElementById("markmaddison");
 const mccharty = document.getElementById("mccharty");
-const mlh = document.getElementsByClassName("mlh")[0];
-const ymn = document.getElementsByClassName("ymn")[0];
-const hsn = document.getElementsByClassName("hsn")[0];
-const md = document.getElementsByClassName("md")[0];
-const mc = document.getElementsByClassName("mc")[0];
 const list = {
   choosen: melih,
   parent: null,
 };
-const tag = list.choosen.children[1].children[0];
 function userPicker() {
-  childUl.style.display = 'none'
-  
-  setTimeout(
-    () =>{
-      childUl.style.display = 'inline-block'
-       const thisParent = this.parentNode;
-  const choosenParent = list.choosen.parentNode;
-  this.appendChild(tag);
-  choosenParent.appendChild(this);
-  //   list.choosen.children[1].removeChild(tag)
-  thisParent.appendChild(list.choosen);
-  list.choosen.children[0].classList.remove("rounded-circle");
-  list.choosen = this;
-  list.choosen.children[0].classList.add("rounded-circle");
-  
-    },6
-  )
- 
-}
+  childUl.style.display = "none";
 
+  setTimeout(() => {
+    childUl.style.display = "inline-block";
+    const thisParent = this.parentNode;
+    const choosenParent = list.choosen.parentNode;
+    choosenParent.appendChild(this);
+
+    //   list.choosen.children[1].removeChild(tag)
+    thisParent.appendChild(list.choosen);
+    list.choosen.children[0].classList.remove("rounded-circle");
+    list.choosen = this;
+    list.choosen.children[0].classList.add("rounded-circle");
+    // usersMainUl.innerHTML = fnc2();
+  }, 6);
+}
 melih.addEventListener("click", userPicker);
 markmaddison.addEventListener("click", userPicker);
 hasanfurkan.addEventListener("click", userPicker);
 yaman.addEventListener("click", userPicker);
 mccharty.addEventListener("click", userPicker);
+// Array.from(users).forEach((element) => {
+//   element.addEventListener("click", userPicker);
+// });
 
 class imgDivs {
   constructor(imgLink, name, eslesme, time, isMovie, aciklama) {
@@ -444,11 +458,12 @@ class modal {
     this.type2 = type2;
     this.type3 = type3;
     this.type4 = type4;
-   
   }
-  imdb (){
-      return( this.id!='RANDMmodal' ? (6 + Math.round(Math.random()*3)) + `.` + (Math.round(Math.random()*9)) : 10.0)
-    }
+  imdb() {
+    return this.id != "RANDMmodal"
+      ? 6 + Math.round(Math.random() * 3) + `.` + Math.round(Math.random() * 9)
+      : 10.0;
+  }
   render() {
     return `<div class="modal fade" id="${
       this.id
@@ -457,14 +472,16 @@ class modal {
   <div class="modal-dialog modal-xl">
       <div class="modal-content rounded-3">
            <div class="modal-body">  <img class='modal-img rounded-3' src="./images/${
-                this.resim
-              }" alt="" >    <button type="button" class="modal-closer btn btn-close btn-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+             this.resim
+           }" alt="" >    <button type="button" class="modal-closer btn btn-close btn-warning" data-bs-dismiss="modal" aria-label="Close"></button>
 
-            <div class='modal-title-div'>  <h3 class="modal-title" id="exampleModalLabel">${this.name}</h3><span class='imdb'>IMDb: ${this.imdb()} ★</span></div>
+            <div class='modal-title-div'>  <h3 class="modal-title" id="exampleModalLabel">${
+              this.name
+            }</h3><span class='imdb'>IMDb: ${this.imdb()} ★</span></div>
               <br><div class="movie-type-div"><div class="movie-type-div-div">
-              <p class="eslesme">%${this.eslesme} eşleşme <span class="time modal-time1">${
-      this.time
-    }</span></p>
+              <p class="eslesme">%${
+                this.eslesme
+              } eşleşme <span class="time modal-time1">${this.time}</span></p>
           <span class="time modal-time orta_nokta">·<span class="movieType">${
             this.type1
           }</span></span>   
@@ -495,13 +512,13 @@ class modal {
 }
 const lupinModal = new modal(
   "LUPINmodal",
-  'modal_lupin.jpg',
+  "modal_lupin.jpg",
   lupin.name,
   lupin.eslesme,
   lupin.time,
   lupin.aciklama,
   "Dram",
-  'Gerilim'
+  "Gerilim"
 );
 const randmModal = new modal(
   "RANDMmodal",
@@ -527,96 +544,573 @@ geyik
 muhabbetleri de o kadar başarılı işleniyor. Rick and Morty hemen her yaştan
 seyirciyi
 bünyesine katabilecek kapasitede bir çizgi dizi.`,
-  "Bilim Kurgu",'Kara Mizah','Animasyon','Muhteşem'
+  "Bilim Kurgu",
+  "Kara Mizah",
+  "Animasyon",
+  "Muhteşem"
 );
 const olulerModal = new modal(
-  'OLULERmodal','modal_oluler.jpg',olulerordusu.name,  olulerordusu.eslesme,
+  "OLULERmodal",
+  "modal_oluler.jpg",
+  olulerordusu.name,
+  olulerordusu.eslesme,
   olulerordusu.time,
-  olulerordusu.aciklama,'Fantastik','Eğlence'
-)
+  olulerordusu.aciklama,
+  "Fantastik",
+  "Eğlence"
+);
 const peakyModal = new modal(
-  'PEAKYmodal','modal_peaky.jpg',peakyBlinders.name,peakyBlinders.eslesme,peakyBlinders.time,peakyBlinders.aciklama,'Dram', 'Gerilim','Suç'
-)
+  "PEAKYmodal",
+  "modal_peaky.jpg",
+  peakyBlinders.name,
+  peakyBlinders.eslesme,
+  peakyBlinders.time,
+  peakyBlinders.aciklama,
+  "Dram",
+  "Gerilim",
+  "Suç"
+);
 const atiyeModal = new modal(
-  'ATIYEmodal','modal_atiye.jpg',atiye.name,atiye.eslesme,atiye.time,atiye.aciklama,'Bilim Kurgu', 'Gizem','Psikolojik Gerilim'
-)
+  "ATIYEmodal",
+  "modal_atiye.jpg",
+  atiye.name,
+  atiye.eslesme,
+  atiye.time,
+  atiye.aciklama,
+  "Bilim Kurgu",
+  "Gizem",
+  "Psikolojik Gerilim"
+);
 const strangerModal = new modal(
-  'STRANGERmodal','modal_stranger.png',strangerThings.name,strangerThings.eslesme,strangerThings.time,strangerThings.aciklama,'Doğa Üstü', 'Gerilim','Dram'
-)
+  "STRANGERmodal",
+  "modal_stranger.png",
+  strangerThings.name,
+  strangerThings.eslesme,
+  strangerThings.time,
+  strangerThings.aciklama,
+  "Doğa Üstü",
+  "Gerilim",
+  "Dram"
+);
 const luciferModal = new modal(
-  'LUCIFERmodal','modal_lucifer.jpg',Lucifer.name,Lucifer.eslesme,Lucifer.time,Lucifer.aciklama,'Dedektiflik', 'Fantastik','Gizem'
-)
+  "LUCIFERmodal",
+  "modal_lucifer.jpg",
+  Lucifer.name,
+  Lucifer.eslesme,
+  Lucifer.time,
+  Lucifer.aciklama,
+  "Dedektiflik",
+  "Fantastik",
+  "Gizem"
+);
 const babybossModal = new modal(
-  'BBmodal','modal_babyboss.jpg',babyboss.name,babyboss.eslesme,babyboss.time,babyboss.aciklama,'Çocuk', 'Fantastik','Animasyon'
-)
+  "BBmodal",
+  "modal_babyboss.jpg",
+  babyboss.name,
+  babyboss.eslesme,
+  babyboss.time,
+  babyboss.aciklama,
+  "Çocuk",
+  "Fantastik",
+  "Animasyon"
+);
 const sihirliModal = new modal(
-  'SIHIRLImodal','modal_sihirli.jpg',sihirliejder.name,sihirliejder.eslesme,sihirliejder.time,Lucifer.sihirliejder,'Animasyon', 'Macera'
-)
-  const wilboyModal = new modal(
-  'WILBOYmodal','modal_wilboy.jpg',wilboy.name,wilboy.eslesme,wilboy.time,wilboy.aciklama,'Animasyon', 'Komedi'
-)
+  "SIHIRLImodal",
+  "modal_sihirli.jpg",
+  sihirliejder.name,
+  sihirliejder.eslesme,
+  sihirliejder.time,
+  Lucifer.sihirliejder,
+  "Animasyon",
+  "Macera"
+);
+const wilboyModal = new modal(
+  "WILBOYmodal",
+  "modal_wilboy.jpg",
+  wilboy.name,
+  wilboy.eslesme,
+  wilboy.time,
+  wilboy.aciklama,
+  "Animasyon",
+  "Komedi"
+);
 const jenerasyonModal = new modal(
-  'JENERASYONmodal','modal_jenerasyon.jpg',jenerasyon.name,jenerasyon.eslesme,jenerasyon.time,jenerasyon.aciklama,'Çocuk', 'Aksiyon','Bilim Kurgu'
-)
+  "JENERASYONmodal",
+  "modal_jenerasyon.jpg",
+  jenerasyon.name,
+  jenerasyon.eslesme,
+  jenerasyon.time,
+  jenerasyon.aciklama,
+  "Çocuk",
+  "Aksiyon",
+  "Bilim Kurgu"
+);
 const sungerModal = new modal(
-  'SUNGERmodal','modal_sunger.jpg',sungerbob.name,sungerbob.eslesme,sungerbob.time,sungerbob.aciklama,'Çocuk', 'Eğlence'
-)
+  "SUNGERmodal",
+  "modal_sunger.jpg",
+  sungerbob.name,
+  sungerbob.eslesme,
+  sungerbob.time,
+  sungerbob.aciklama,
+  "Çocuk",
+  "Eğlence"
+);
 const fearlessModal = new modal(
-  'FEARLESSmodal','modal_fearless.jpg',fearless.name,fearless.eslesme,fearless.time,fearless.aciklama,'Aksiyon', 'Dövüş'
-)
+  "FEARLESSmodal",
+  "modal_fearless.jpg",
+  fearless.name,
+  fearless.eslesme,
+  fearless.time,
+  fearless.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const himymModal = new modal(
-  'HIMYMmodal','modal_himym.jpg',himym.name,himym.eslesme,himym.time,himym.aciklama,'Aksiyon', 'Dövüş'
-)
+  "HIMYMmodal",
+  "modal_himym.jpg",
+  himym.name,
+  himym.eslesme,
+  himym.time,
+  himym.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const drwhoModal = new modal(
-  'DRWHOmodal','modal_drwho.jpg',drwho.name,drwho.eslesme,drwho.time,drwho.aciklama,'Aksiyon', 'Dövüş'
-)
+  "DRWHOmodal",
+  "modal_drwho.jpg",
+  drwho.name,
+  drwho.eslesme,
+  drwho.time,
+  drwho.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const cukurModal = new modal(
-  'CUKURmodal','modal_cukur.jpg',cukur.name,cukur.eslesme,cukur.time,cukur.aciklama,'Aksiyon', 'Dövüş'
-)
+  "CUKURmodal",
+  "modal_cukur.jpg",
+  cukur.name,
+  cukur.eslesme,
+  cukur.time,
+  cukur.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const cadilarModal = new modal(
-  'CADILARmodal','modal_cadilar.jpg',cadilarokulu.name,fearless.eslesme,cadilarokulu.time,cadilarokulu.aciklama,'Aksiyon', 'Dövüş'
-)
+  "CADILARmodal",
+  "modal_cadilar.jpg",
+  cadilarokulu.name,
+  fearless.eslesme,
+  cadilarokulu.time,
+  cadilarokulu.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const arrowModal = new modal(
-  'ARROWmodal','modal_arrow.jpg',arrow.name,arrow.eslesme,arrow.time,arrow.aciklama,'Aksiyon', 'Dövüş'
-)
+  "ARROWmodal",
+  "modal_arrow.jpg",
+  arrow.name,
+  arrow.eslesme,
+  arrow.time,
+  arrow.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const ask101Modal = new modal(
-  'ASK101modal','modal_ask101.jpg',ask101.name,ask101.eslesme,ask101.time,ask101.aciklama,'Aksiyon', 'Dövüş'
-)
+  "ASK101modal",
+  "modal_ask101.jpg",
+  ask101.name,
+  ask101.eslesme,
+  ask101.time,
+  ask101.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const bbModal = new modal(
-  'BMmodal','modal_blackmirror.jpg',blackmirror.name,blackmirror.eslesme,blackmirror.time,blackmirror.aciklama,'Aksiyon', 'Dövüş'
-)
+  "BMmodal",
+  "modal_blackmirror.jpg",
+  blackmirror.name,
+  blackmirror.eslesme,
+  blackmirror.time,
+  blackmirror.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const trolModal = new modal(
-  'TROLmodal','modal_trol.jpg',trolavcilari.name,trolavcilari.eslesme,trolavcilari.time,trolavcilari.aciklama,'Aksiyon', 'Dövüş'
-)
+  "TROLmodal",
+  "modal_trol.jpg",
+  trolavcilari.name,
+  trolavcilari.eslesme,
+  trolavcilari.time,
+  trolavcilari.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const vikingsModal = new modal(
-  'VIKINGSmodal','modal_vikings.jpg',vikings.name,vikings.eslesme,vikings.time,vikings.aciklama,'Aksiyon', 'Dövüş'
-)
+  "VIKINGSmodal",
+  "modal_vikings.jpg",
+  vikings.name,
+  vikings.eslesme,
+  vikings.time,
+  vikings.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const countdownModal = new modal(
-  'COUNTDOWNmodal','modal_countdown.jpg',countdown.name,countdown.eslesme,countdown.time,countdown.aciklama,'Aksiyon', 'Dövüş'
-)
+  "COUNTDOWNmodal",
+  "modal_countdown.jpg",
+  countdown.name,
+  countdown.eslesme,
+  countdown.time,
+  countdown.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const raisingModal = new modal(
-  'RAISINGmodal','modal_raising.jpg',raising.name,raising.eslesme,raising.time,raising.aciklama,'Aksiyon', 'Dövüş'
-)
+  "RAISINGmodal",
+  "modal_raising.jpg",
+  raising.name,
+  raising.eslesme,
+  raising.time,
+  raising.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 const klausModal = new modal(
-  'KLAUSmodal','modal_klausjpg',klaus.name,klaus.eslesme,klaus.time,klaus.aciklama,'Aksiyon', 'Dövüş'
-)
+  "KLAUSmodal",
+  "modal_klaus.png",
+  klaus.name,
+  klaus.eslesme,
+  klaus.time,
+  klaus.aciklama,
+  "Aksiyon",
+  "Dövüş"
+);
 
 document.getElementById("modal_insert_randm").innerHTML = randmModal.render();
 document.getElementById("modal_insert_lupin").innerHTML = lupinModal.render();
-document.getElementById("modal_insert_olulerordusu").innerHTML = olulerModal.render();
+document.getElementById("modal_insert_olulerordusu").innerHTML =
+  olulerModal.render();
 document.getElementById("modal_insert_peaky").innerHTML = peakyModal.render();
 document.getElementById("modal_insert_atiye").innerHTML = atiyeModal.render();
-document.getElementById("modal_insert_stranger").innerHTML = strangerModal.render();
-document.getElementById("modal_insert_lucifer").innerHTML = luciferModal.render();
-document.getElementById("modal_insert_babyboss").innerHTML = babybossModal.render();
-document.getElementById("modal_insert_sihirli").innerHTML = sihirliModal.render();
+document.getElementById("modal_insert_stranger").innerHTML =
+  strangerModal.render();
+document.getElementById("modal_insert_lucifer").innerHTML =
+  luciferModal.render();
+document.getElementById("modal_insert_babyboss").innerHTML =
+  babybossModal.render();
+document.getElementById("modal_insert_sihirli").innerHTML =
+  sihirliModal.render();
 document.getElementById("modal_insert_wilboy").innerHTML = wilboyModal.render();
-document.getElementById("modal_insert_jenerasyon").innerHTML = jenerasyonModal.render();
+document.getElementById("modal_insert_jenerasyon").innerHTML =
+  jenerasyonModal.render();
 document.getElementById("modal_insert_sunger").innerHTML = sungerModal.render();
-document.getElementById("modal_insert_fearless").innerHTML = fearlessModal.render();
+document.getElementById("modal_insert_fearless").innerHTML =
+  fearlessModal.render();
 document.getElementById("modal_insert_himym").innerHTML = himymModal.render();
 document.getElementById("modal_insert_drwho").innerHTML = drwhoModal.render();
 document.getElementById("modal_insert_cukur").innerHTML = cukurModal.render();
-document.getElementById("modal_insert_cadilar").innerHTML = cadilarModal.render();
+document.getElementById("modal_insert_cadilar").innerHTML =
+  cadilarModal.render();
 document.getElementById("modal_insert_arrow").innerHTML = arrowModal.render();
 document.getElementById("modal_insert_ask101").innerHTML = ask101Modal.render();
+document.getElementById("modal_insert_bm").innerHTML = bbModal.render();
+document.getElementById("modal_insert_trol").innerHTML = trolModal.render();
+document.getElementById("modal_insert_vikings").innerHTML =
+  vikingsModal.render();
+document.getElementById("modal_insert_countdonw").innerHTML =
+  countdownModal.render();
+document.getElementById("modal_insert_raising").innerHTML =
+  raisingModal.render();
+document.getElementById("modal_insert_klaus").innerHTML = klausModal.render();
+const fnc4 = () => {
+  return `${Users.first ? Users.first : ""}${
+    Users.first != ''
+      ? `<button id='firstUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }<div>
+${Users.second != '' ? Users.second : ""}${
+    Users.second != ''
+      ? `<button id='secondUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.third != '' ? Users.third : ""}${
+    Users.third != ''
+      ? `<button id='thirdUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.fourth != '' ? Users.fourth : ""}${
+    Users.fourth != ''
+      ? `<button id='fourthUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.fifth != '' ? Users.fifth : ""}${
+    Users.fifth != ''
+      ? `<button id='fifthUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.sixth != '' ? Users.sixth : ""}${
+    Users.sixth != ''
+      ? `<button id='sixthUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.seventh != '' ? Users.seventh : ""}${
+    Users.seventh != ''
+      ? `<button id='seventhUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div><div>
+${Users.eighth != '' ? Users.eighth : ""}${
+    Users.eighth != ''
+      ? `<button id='eighthUserKaldir' class='kaldirButton btn btn-danger'>KALDIR</button><br>`
+      : ""
+  }</div>`;
+};
+const profilEkle = document.getElementById("profil-ekle");
+const profilKaldir = document.getElementById("profil-kaldir");
+const fnc1 = () => {
+  return `
+  <div class="modal fade" id="KALDIRmodal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+      <div class="modal-body">
+      <h5 class="modal-title" id="exampleModalLabel">Silmek İstediğiniz Profilleri Seçin</h5><br><br>
+          <button type="button" class="modal-closer btn btn-close btn-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+${fnc4()}
+<div class='modal_uyari bg-danger'>
+  <p> DİKKAT! <br>
+  Bir kullanıcıyı sildikten sonra kullanıcı değişikliği yapamaz, daha fazla kullanıcı silemezsiniz.</p>
+</div>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+  </div>`;
+};
+profilKaldir.addEventListener("click", () => {
+  document.getElementById("modal_insert_profilkaldir").innerHTML = fnc1();
+});
+
+document.getElementById("modal_insert_profilkaldir").innerHTML = fnc1();
+const fnc3 = () => {
+  document.getElementById("firstUserKaldir") ? document.getElementById("firstUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("secondUserKaldir") ? document.getElementById("secondUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("thirdUserKaldir") ? document.getElementById("thirdUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("fourthUserKaldir") ? document.getElementById("fourthUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("fifthUserKaldir") ? document.getElementById("fifthUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("sixthUserKaldir") ? document.getElementById("sixthUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("seventhUserKaldir") ? document.getElementById("seventhUserKaldir").addEventListener("click", removeUser) : null;
+  document.getElementById("eighthUserKaldir") ? document.getElementById("eighthUserKaldir").addEventListener("click", removeUser) : null;
+};
+
+fnc3();
+function removeUser() {
+  fnc3();
+  if (this.id == "firstUserKaldir") {
+   alert('Bu Kullanıcıyı Kaldıramazsınız.')
+  }
+  if (this.id == "secondUserKaldir") {
+    Users.second = "";
+    this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "thirdUserKaldir") {
+    Users.third = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "fourthUserKaldir") {
+    Users.fourth = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "fifthUserKaldir") {
+    Users.fifth = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "sixthUserKaldir") {
+    Users.sixth = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "seventhUserKaldir") {
+    Users.seventh = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+  if (this.id == "eighthUserKaldir") {
+    Users.eighth = "";  this.style.backgroundColor = 'green'
+    console.log(this.parentNode.childNode)
+    setTimeout(()=>{
+      this.parentNode.innerHTML = ''
+      this.remove()
+    }
+      ,500)
+  }
+
+  usersMainUl.innerHTML = fnc2();
+  document.getElementById("modal_insert_profilkaldir").innerHTML = fnc1();
+
+  list = {
+    choosen: melih,
+    parent: null,
+  };
+}
+const fnc5 = () => {
+  return `
+  <div class="modal fade" id="EKLEmodal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+      <div class="modal-body">
+      <h5 class="modal-title" id="exampleModalLabel">Yeni Kullanıcı</h5><br><br>
+          <button type="button" class="modal-closer btn btn-close btn-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+          <form id='newUserForm' action='#'>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Kullanıcı Adı</label>
+    <input  autocomplete="off" type="email" class="form-control"   id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1"class="form-label">Şifre</label>
+    <input type="password" id="newUser_password" class="form-control"><br><label for="imgSelect" class="form-label">Profil Resmi</label>
+<div id='imgSelect'>
+    <input type="radio" id="radios1" name="radio">
+    <label for="radios1"><img src="./images/user-pp1.png" alt=""></label>
+
+    <input type="radio" id="radios2" name="radio">
+    <label for="radios2"><img src="./images/user-pp2.png" alt=""></label>
+
+    <input type="radio" id="radios3" name="radio">
+    <label for="radios3"><img src="./images/user-pp3.png" alt=""></label>
+
+    <input type="radio" id="radios4" name="radio">
+    <label for="radios4"><img src="./images/user-pp4.png" alt=""></label>
+
+    <input type="radio" id="radios5" name="radio">
+    <label for="radios5"><img src="./images/user-pp5.png" alt=""></label>
+
+    <input type="radio" id="radios6" name="radio">
+    <label for="radios6"><img src="./images/user-pp6.png" alt=""></label>
+
+    <input type="radio" id="radios7" name="radio">
+    <label for="radios7"><img src="./images/user-pp7.png" alt=""></label>
+
+    <input type="radio" id="radios8" name="radio">
+    <label for="radios8"><img src="./images/user-pp8.png" alt=""></label>
+
+</div>
+  </div>
+  <button id='yenikullanici_btn' type="submit" class="btn mt-3 btn-primary" data-bs-dismiss="modal">Save changes</button>
+</form>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+  </div>`;
+};
+const uuser = {};
+document.getElementById("modal_insert_profilekle").innerHTML = fnc5();
+// profilEkle.addEventListener('click',()=>{
+//   document.getElementById("modal_insert_profilekle").innerHTML = fnc5();
+
+// })
+document.getElementById("yenikullanici_btn").addEventListener("click", addUser);
+function addUser(e) {
+  e.preventDefault();
+  uuser.userName = document.getElementById("exampleInputEmail1").value;
+  uuser.value1 = document.getElementById("radios1");
+  uuser.value2 = document.getElementById("radios2");
+  uuser.value3 = document.getElementById("radios3");
+  uuser.value4 = document.getElementById("radios4");
+  uuser.value5 = document.getElementById("radios5");
+  uuser.value6 = document.getElementById("radios6");
+  uuser.value7 = document.getElementById("radios7");
+  uuser.value8 = document.getElementById("radios8");
+  if (uuser.value1.checked){
+    uuser.imgLink = 'user-pp1'
+  } else  if (uuser.value2.checked){
+    uuser.imgLink = 'user-pp2'
+  }else  if (uuser.value3.checked){
+    uuser.imgLink = 'user-pp3'
+  }else  if (uuser.value4.checked){
+    uuser.imgLink = 'user-pp4'
+  }else  if (uuser.value5.checked){
+    uuser.imgLink = 'user-pp5'
+  }else  if (uuser.value6.checked){
+    uuser.imgLink = 'user-pp6'
+  }else  if (uuser.value7.checked){
+    uuser.imgLink = 'user-pp7'
+  }else  if (uuser.value8.checked){
+    uuser.imgLink = 'user-pp8'
+  }
+  if (Users.sixth == '') {
+    Users.sixth = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.seventh == '') {
+    Users.seventh = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.eighth == '') {
+    Users.eighth = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.fifth == '') {
+    Users.fifth = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.fourth == '') {
+    Users.fourth = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.third == '') {
+    Users.third = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  } else if (Users.second == '') {
+    Users.second = `<li class="users_li"><span class='users_lispan' id="">
+  <img class="ul_images" src="./images/${uuser.imgLink}.png" alt="">
+   <p class="users">${uuser.userName}<i id="downsign" class="fas fa-sort-down"></i></p>
+  </span> </li>`;
+  }else{
+    alert('Daha Fazla Kullanıcı Ekleyemezsiniz')
+  }
+  usersMainUl.innerHTML = fnc2();
+  document.getElementById("modal_insert_profilkaldir").innerHTML = fnc1();
+  document.getElementById("newUser_password").value = '';
+  document.getElementById("exampleInputEmail1").value = '';  
+
+}

@@ -81,7 +81,7 @@
     <li id="bildirim_main_li"><i title="Bildirimler" id="bell" class="fas fa-bell"></i> <i id="downsign"
             class="fas fa-sort-down"></i></li>
     <ul id="bildirim_ul" class="rounded">
-        <li><img class="bildirim_img" src=".//images/bildirim1.png" alt="">
+        <li  data-bs-toggle="modal" data-bs-target="#BMmodal"><img class="bildirim_img" src=".//images/bildirim1.png" alt="">
             <p class="p2">En sevdiklerinizi yeniden izleyin, İzlediklerinize bir göz atın<br><span
                     class="bildirim_tarih">Bugün</span>
 
@@ -108,7 +108,7 @@
                     önce</span></p>
         </li>
         <hr>
-        <li><img class="bildirim_img" src=".//images/bildirim6.jpg" alt="">
+        <li  data-bs-toggle="modal" data-bs-target="#PEAKYmodal"><img class="bildirim_img" src=".//images/bildirim6.jpg" alt="">
             <p class="p2">Dünyanın En İyi Dizisi Olmaya Aday:<br>Peaky Blinders, Hemen İzleyin <br><span
                     class="bildirim_tarih">5 gün önce</span></p>
         </li>
@@ -119,7 +119,7 @@
                     class="bildirim_tarih">1 hafta önce</span></p>
         </li>
         <hr>
-        <li><img class="bildirim_img" src=".//images/bildirim8.png" alt="">
+        <li data-bs-toggle="modal" data-bs-target="#OLULERmodal"><img class="bildirim_img" src=".//images/bildirim8.png" alt="">
             <p class="p2">Yeni İçerik: <br>Ölüler Ordusu <br><span class="bildirim_tarih">1 hafta
                     önce</span></p>
         </li>
@@ -135,7 +135,7 @@
     </ul>
     
     </nav>
-   
+
     <div class="video_div">
         <div class="video_title_div">
             <p class="weird">Rick <br> and <br> Morty</p>
@@ -204,7 +204,7 @@
     <div class="kapakfotolari_div">
 
 
-        <div id="blackmirror" data-bs-toggle="modal" data-bs-target="#BBmodal"></div>
+        <div id="blackmirror" data-bs-toggle="modal" data-bs-target="#BMmodal"></div>
         <div id="trolavcilari" data-bs-toggle="modal" data-bs-target="#TROLmodal"></div>
         <div id="vikings" data-bs-toggle="modal" data-bs-target="#VIKINGSmodal"></div>
         <div id="countdown" data-bs-toggle="modal" data-bs-target="#COUNTDOWNmodal"></div>
@@ -240,12 +240,16 @@
     <div id="modal_insert_arrow"></div>
     <div id="modal_insert_ask101"></div>
 
-    <div id="modal_insert_bb"></div>
+    <div id="modal_insert_bm"></div>
     <div id="modal_insert_trol"></div>
     <div id="modal_insert_vikings"></div>
     <div id="modal_insert_countdonw"></div>
     <div id="modal_insert_raising"></div>
     <div id="modal_insert_klaus"></div>
+
+
+    <div id="modal_insert_profilekle"></div>
+    <div id="modal_insert_profilkaldir"></div>
 
     <script src="./app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
