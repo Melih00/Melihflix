@@ -387,8 +387,84 @@ body {
 #userul > * {
   margin: 11px 2px;
 }
+.profilyonetimi-div{
+  background-color: inherit;margin: 0;padding: 0;
+  display: flex;align-items:stretch;
+  justify-content: space-around;
+}
 
+.profilyonetimi-div > *{
+  margin:5px 1px;
+}
+.profilyonetimi-p{
+  color: white;
+  text-decoration: none;
+  opacity: .8;
+}
+.profilyonetimi-p:hover{
+  color: white;
+  text-decoration: underline;
+  opacity: 1;
+}
+#KALDIRmodal .users_li i{
+  display: none ; 
+}
 
+#KALDIRmodal .modal-body{
+  margin-bottom: 30px !important;
+
+}
+#KALDIRmodal .modal_uyari{
+  /* background-color: red; */
+  position: absolute;
+  right: 130px;
+padding: 10px;
+  top: 36%;
+  width: 256px;
+  border-radius: 4%;
+}
+
+#KALDIRmodal .users_li{
+  display: inline-block;
+  position: relative;
+  width: 25% !important;
+  margin:8px 25px  ;padding: 0;
+}
+#KALDIRmodal .users_li:hover *{
+  text-decoration: none ;
+}
+#KALDIRmodal .rounded-circle{
+  border-radius: 0px !important;
+}
+#EKLEmodal form{
+  padding: 10px 45px 30px;
+}
+#EKLEmodal .form-label{
+  font-size: 18px !important;
+}
+#imgSelect{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+width: 100%;  align-self: center;
+  margin: auto;
+  justify-content: center;  
+  
+}
+#imgSelect input{
+  opacity: 0;
+}
+#imgSelect img{
+  cursor: pointer ;
+  padding: 5px;
+  border-radius: 10%;
+  height: 140px;
+}
+#imgSelect img:active,#imgSelect img:focus{
+  opacity: .82;
+  scale: (1.2);
+  background-color: rgb(240, 240, 33);
+}
 
 
 @media (max-width: 1200px) {
