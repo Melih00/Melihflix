@@ -11,7 +11,7 @@ class headerClass {
                     this.classEl == `@anasayfa`
                       ? `active border-bottom border-warning`
                       : ``
-                  } " aria-current="page" href="./anasayfa.html">Ana
+                  } " aria-current="page" href="#">Ana
                       Sayfa</a>
               </li>
               <li class="nav-item">
@@ -19,21 +19,21 @@ class headerClass {
                     this.classEl == `@diziler`
                       ? `active border-bottom border-warning`
                       : ``
-                  } " href="./diziler.html">Diziler</a>
+                  } " href="#">Diziler</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link ${
                     this.classEl == `@filmler`
                       ? `active border-bottom border-warning`
                       : ``
-                  } " href="./filmler.html">Filmler </a>
+                  } " href="#">Filmler </a>
               </li>
               <li class="nav-item">
                   <a class="nav-link ${
                     this.classEl == `@listem`
                       ? `active border-bottom border-warning`
                       : ``
-                  } " href="./listem.html">Listem</a>
+                  } " href="#">Listem</a>
               </li>
   
   
