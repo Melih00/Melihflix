@@ -8,5 +8,5 @@ https://melih00.github.io/Melihflix/anasayfa.html
   Melihflix
 </h1>
 <p align="center">
-  https://melih00.github.io/Melihflix/anasayfa.html
+  https://melih00.github.io/Melihflix/main.html
 </p>
