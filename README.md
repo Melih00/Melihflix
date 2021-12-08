@@ -1,4 +1,4 @@
-https://melih00.github.io/Melihflix/anasayfa.html
+https://melih00.github.io/Melihflix/main.html
 
 <p align="center">
   <img src="./htmlcssjs.png" height="150" >
